@@ -65,7 +65,7 @@ def analyze(request: LogAnalysisRequest):
     return ApiResponse(
         success=True,
         message="Log analysis completed",
-        data=report.dict(),
+        data=report.model_dump(),
         timestamp=datetime.now().isoformat()
     )
 
@@ -100,6 +100,6 @@ def analyze_demo():
     return ApiResponse(
         success=True,
         message="Demo analysis completed",
-        data=report.dict(),
+        data=report.model_dump(),
         timestamp=datetime.now().isoformat()
     )
