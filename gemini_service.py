@@ -5,9 +5,34 @@ from datetime import datetime
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
 
+MOCK_RESPONSE = {
+    "severity": "CRITICAL",
+    "probable_cause": "Primary database host is unreachable due to connection pool exhaustion caused by a spike in write operations overwhelming the max_connections limit.",
+    "affected_components": [
+        "database-primary",
+        "payment-service",
+        "connection-pool",
+        "write-operations"
+    ],
+    "remediation_steps": [
+        "Immediately restart the connection pool manager to release exhausted connections",
+        "Scale up database max_connections from current limit",
+        "Redirect write traffic to read replica temporarily",
+        "Investigate root cause of write operation spike in the last 30 minutes",
+        "Set up connection pool monitoring alert at 80% threshold"
+    ],
+    "slo_violation": True,
+    "error_rate": "94%"
+}
+
 def analyze_logs(logs: str, service_name: str, environment: str) -> dict:
+    ai_provider = os.getenv("AI_PROVIDER", "mock")
+
+    if ai_provider == "mock":
+        return MOCK_RESPONSE
+
     api_key = os.getenv("GEMINI_API_KEY")
-    
+
     prompt = f"""You are an expert SRE (Site Reliability Engineer). Analyze these infrastructure logs and respond in JSON only.
 
 Service: {service_name}
