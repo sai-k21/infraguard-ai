@@ -1,7 +1,6 @@
 import os
 import requests
 import json
-from datetime import datetime
 
 GEMINI_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent"
 
