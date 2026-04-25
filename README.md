@@ -2,10 +2,6 @@
 
 AI-powered infrastructure log analysis and incident response platform that analyzes service logs using Google Gemini to generate severity classification, root cause analysis, SLO violation detection, and step-by-step remediation guidance.
 
-## Live Demo
-
-API running with Swagger UI available at the deployed URL.
-
 ## Features
 
 - AI-generated severity classification (CRITICAL/HIGH/MEDIUM/LOW)
