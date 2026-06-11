@@ -74,5 +74,4 @@ curl -X POST http://localhost:8000/analyze \
 ## Author
 
 **Sai Kumar Moguluri**
-LinkedIn: [linkedin.com/in/sai-1899k](https://linkedin.com/in/sai-1899k)
 GitHub: [github.com/sai-k21](https://github.com/sai-k21)
